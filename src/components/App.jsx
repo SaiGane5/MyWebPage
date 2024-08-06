@@ -1,62 +1,73 @@
 import React from "react";
-import EducationAcheivements from "./EducationAcheivement";
+import EducationAchievement from "./EducationAcheivement";
 import Projects from "./Project";
 import Extras from "./Extra";
 import Footer from "./Footer";
-import educationAcheivement from "../educationAcheivement";
-import project from "../project";
-import extra from "../extra";
-
-// function smoothScroll(){
-//     document.querySelector('').scrollIntoView({
-//         behavior: 'smooth'
-//     });
-// }
-// function displayDescription() {
-//     return
-// }
-
-function createEducationAcheivement() {
-  return (
-    <EducationAcheivements
-        key={educationAcheivement.id}
-        name={educationAcheivement.name}
-        description={educationAcheivement.description}
-        img={educationAcheivement.img}
-        />
-  );
-}
-function createProject() {
-  return (
-    <Projects 
-        key={project.id}
-        name={project.name}
-        description={project.description}
-        img={project.img}
-        />
-  );
-}
-function createExtra() {
-  return (
-    <Extras 
-        key={extra.id}
-        name={extra.name}
-        description={extra.description}
-        img={extra.img}
-        />
-  );
-}
+import educationAchievements from "../educationAcheivement";
+import projects from "../project";
+import extras from "../extra";
+import Card from "./Card";
 
 function App() {
-  return(
+  return (
     <div>
+      <div id="header">
+        <header>
+          <button>
+            <a href="#acheive">Achievements</a>
+          </button>
+          <button>
+            <a href="#project">Projects</a>
+          </button>
+          <button>
+            <a href="#extra">Extra Activities</a>
+          </button>
+        </header>
+      </div>
       <h1 className="heading">Welcome to My Resume</h1>
-      <h1 className="heading">Scholastic Achievements</h1>
-      {educationAcheivement.map(createEducationAcheivement)}
-      <h1 className="heading">Projects</h1>
-      {project.map(createProject)}
-      <h1 className="heading">Extra Activities</h1>
-      {extra.map(createExtra)}
+      <hr />
+      <div className="info">
+        <p>Hi there, I am Sai Ganesh from Vizag, studying at IITM.</p>
+        <p>Passionate about AI/ML systems and Web Development</p>
+      </div>
+      <div id="acheive">
+        <h1 className="heading">Scholastic Achievements</h1>
+        <hr />
+        {educationAchievements.map((achievement) => (
+          <Card
+            key={achievement.id}
+            name={achievement.name}
+            description={achievement.description}
+            img={achievement.img}
+          />
+        ))}
+      </div>
+      <div id="project">
+        <h1 className="heading">Projects</h1>
+      </div>
+      <hr />
+      {projects.map((project) => (
+        <Card
+          key={project.id}
+          name={project.name}
+          description={project.description}
+          img={project.img}
+        />
+      ))}
+
+      <h1 className="heading" id="extra">
+        Extra Activities
+      </h1>
+      <hr />
+      {extras.map((extra) => (
+        <Card
+          key={extra.id}
+          name={extra.name}
+          description={extra.description}
+          img={extra.img}
+        />
+      ))}
+
       <Footer />
     </div>
   );
