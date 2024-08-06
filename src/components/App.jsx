@@ -1,7 +1,4 @@
 import React from "react";
-import EducationAchievement from "./EducationAcheivement";
-import Projects from "./Project";
-import Extras from "./Extra";
 import Footer from "./Footer";
 import educationAchievements from "../educationAcheivement";
 import projects from "../project";
